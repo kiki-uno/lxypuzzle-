@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<title>A cute puzzle</title>
+<style type='text/css'>
+body { background-color: grey; }
+ @media screen and (max-width: 960px) { body { background-color: Linen; } }
+ @media screen and (max-width: 768px) { body { background-color: Beige; } }
+ @media screen and (max-width: 550px) { body { background-color: MintCream; } }
+</style>
+</head>
+<style>
+#container {
+  width: 400px;
+  height: 50px;
+  position: relative;
+  background: LightPink;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: LightSteelBlue;
+}
+</style>
+<body>
+
+  <h1>我理想的puzzle:</h1>
+  <h2>已知容器全长400，小方块长度50，请通过点击下方两个按钮，使小方块的右端刚好到达容器右端</h2>
+    <h3>（如果超出容器，则挑战失败）</h3>
+    <p><button onclick="myMove1()">右移150</button></p>
+    <p><button onclick="myMove2()">右移20</button></p>
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+
+  <script>
+
+window.alert('这是个还未完成的puzzle,你确定接受挑战吗！！');
+
+
+function myMove1() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 400){
+      clearInterval(id);
+    } else {
+      elem.style.left = pos + "150px";
+    }
+  }
+}
+function myMove2() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos > 400){
+      window.alert('失败了喔，刷新再试一次');
+    } else {
+
+      elem.style.left = pos + "50px";
+    }
+  }
+}
+</script>
+  <h3>但事实是第二个按钮不知道为什么动不了呜呜呜呜，之后还想请求老师指点</h3>
+    <h3>(改变页面比例可以更换背景颜色)</h3>
+</body>
+</html>
